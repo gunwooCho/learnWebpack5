@@ -5,6 +5,7 @@ module.exports = {
   },
   extends: [
     'airbnb',
+    'airbnb-typescript',
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
@@ -15,13 +16,17 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
+    project: './tsconfig.json',
   },
+  ignorePatterns: [
+    '.eslintrc.js',
+    'webpack.config.js',
+  ],
   plugins: [
     'react',
     '@typescript-eslint',
   ],
   rules: {
-    '@typescript-eslint/no-var-requires': 'off',
-    'react/function-component-definition': 'off',
+    "react/function-component-definition": "off",
   },
 };

@@ -5,10 +5,8 @@ import styled from 'styled-components';
 
 const AppStyled = styled.i``;
 
-function App() {
-  return (
-    <AppStyled className="wni wni-add">hello world</AppStyled>
-  );
-}
+const App = () => (
+  <AppStyled className="wni wni-add">hello world</AppStyled>
+);
 
 export default App;

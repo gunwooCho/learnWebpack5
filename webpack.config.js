@@ -7,8 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
-dotenv.config();
-
+const envConfig = dotenv.config();
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 
 const jsRegex = /\.(js|jsx|ts|tsx)$/i;
@@ -119,7 +118,13 @@ module.exports = (
         favicon: false,
       }),
 
-      new webpack.DefinePlugin({}),
+      new webpack.DefinePlugin({
+        'process.env': Object.keys(envConfig.parsed).reduce((acc, key) => {
+          const env = acc;
+          env[key] = JSON.stringify(envConfig.parsed[key]);
+          return env;
+        }, {}),
+      }),
 
       isEnvProduction && new MiniCssExtractPlugin({
         filename: 'static/css/[name].[contenthash:8].css',
