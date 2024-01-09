@@ -46,7 +46,7 @@ module.exports = ({ WEBPACK_SERVE }) => {
       parser: {
         javascript: {
           exportsPresence: 'error',
-        }
+        },
       },
 
       rules: [
@@ -61,14 +61,14 @@ module.exports = ({ WEBPACK_SERVE }) => {
           test: cssRegex,
           use: [
             {
-              loader: isEnvProduction ? MiniCssExtractPlugin.loader : "style-loader",
+              loader: isEnvProduction ? MiniCssExtractPlugin.loader : 'style-loader',
             },
             {
               loader: 'css-loader',
               options: {
                 importLoaders: 1, // 1 => postcss-loader;
-                sourceMap: isEnvProduction
-              }
+                sourceMap: isEnvProduction,
+              },
             },
             // [postcss-loader](https://nukw0n-dev.tistory.com/27)
             {
@@ -83,7 +83,7 @@ module.exports = ({ WEBPACK_SERVE }) => {
                         flexbox: 'no-2009',
                       },
                       stage: 3,
-                    }
+                    },
                   },
                   sourceMap: isEnvProduction,
                 },
@@ -119,7 +119,7 @@ module.exports = ({ WEBPACK_SERVE }) => {
         fileName: 'asset-manifest.json',
         publicPath: '/',
       }),
-    ].filter(plugins => plugins),
+    ].filter((plugins) => plugins),
 
     optimization: {
       runtimeChunk: 'single',

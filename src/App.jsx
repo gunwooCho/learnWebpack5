@@ -5,11 +5,10 @@ import styled from 'styled-components';
 
 const AppStyled = styled.i``;
 
-const App = () => {
-  return <>
-    <img src=''></img>
+function App() {
+  return (
     <AppStyled className="wni wni-add">hello world</AppStyled>
-  </>
-};
+  );
+}
 
 export default App;
