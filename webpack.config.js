@@ -14,11 +14,11 @@ const cssRegex = /\.css$/i;
 const imageRegex = /\.(png|svg|jpe?g|gif)$/i;
 const webfontRegex = /\.(woff|woff2|eot|ttf|otf)$/i;
 
-module.exports = (overwriteData) => {
-  const isEnvProduction = overwriteData.mode === 'production';
+module.exports = ({ WEBPACK_SERVE }) => {
+  const isEnvProduction = !!WEBPACK_SERVE;
 
-  const result = merge({
-    mode: 'production',
+  const result = {
+    mode: WEBPACK_SERVE ? 'development' : 'production',
 
     bail: isEnvProduction,
 
@@ -157,7 +157,23 @@ module.exports = (overwriteData) => {
         name: false,
       },
     },
-  }, overwriteData);
+
+    // development
+    devServer: {
+      host: '0.0.0.0',
+      // contentBase: path.resolve(__dirname, './dist'), // dist 디렉토리를 웹 서버의 기본 호스트 위치로 설정
+      // index: 'index.html', // 인덱스 파일 설정
+      port: 9878, // 포트 번호 설정
+      hot: true, // 핫 모듈 교체(HMR) 활성화 설정
+      compress: true, // gzip 압축 활성화
+      historyApiFallback: true, // History 라우팅 대체 사용 설정
+      open: true, // 개발 서버 자동 실행 설정
+
+      static: './dist',
+
+      // proxy: {}
+    },
+  };
 
   return result;
 };
