@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const { merge } = require('webpack-merge');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
@@ -18,7 +17,7 @@ module.exports = ({ WEBPACK_SERVE }) => {
   const isEnvProduction = !!WEBPACK_SERVE;
 
   const result = {
-    mode: WEBPACK_SERVE ? 'development' : 'production',
+    mode: isEnvProduction ? 'production' : 'development',
 
     bail: isEnvProduction,
 
@@ -51,7 +50,6 @@ module.exports = ({ WEBPACK_SERVE }) => {
       },
 
       rules: [
-        // React using *.js(x) or *.ts(x)
         {
           test: jsRegex,
           exclude: /node_modules/,
@@ -59,8 +57,6 @@ module.exports = ({ WEBPACK_SERVE }) => {
             loader: 'ts-loader',
           },
         },
-
-        // *.css
         {
           test: cssRegex,
           use: [
@@ -95,14 +91,10 @@ module.exports = ({ WEBPACK_SERVE }) => {
             },
           ],
         },
-
-        // images
         {
           test: imageRegex,
           type: 'asset/resource', // file-loader
         },
-
-        // web-fonts
         {
           test: webfontRegex,
           type: 'asset/resource', // file-loader
