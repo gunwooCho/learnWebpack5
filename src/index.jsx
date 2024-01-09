@@ -1,23 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
 
-import App from './App';
+import store from './store';
 
-const worker = new Worker(new URL('./util/workerExample.js', import.meta.url));
-console.log(import.meta.url);
-
-worker.postMessage({
-  question:
-    'The Answer to the Ultimate Question of Life, The Universe, and Everything.',
-});
-
-worker.onmessage = ({ data: { answer } }) => {
-  console.log(answer);
-};
+import App from './components/App';
+import './worker';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
 );
