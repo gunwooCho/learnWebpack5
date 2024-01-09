@@ -29,5 +29,6 @@ module.exports = {
   rules: {
     "react/function-component-definition": "off",
     "arrow-parens": ["error", "as-needed"],
+    "react/button-has-type": "off",
   },
 };
