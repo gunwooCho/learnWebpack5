@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 
 const dotenv = require('dotenv');
+const ESLintWebpackPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -113,6 +114,13 @@ module.exports = (
     },
 
     plugins: [
+      new ESLintWebpackPlugin({
+        // emitError: true,
+        emitWarning: false,
+        // failOnWarning: false,
+        // failOnError: true,
+      }),
+
       new HtmlWebpackPlugin({
         template: './public/index.html',
         favicon: false,
