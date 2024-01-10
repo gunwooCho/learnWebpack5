@@ -26,8 +26,6 @@ module.exports = (
 
   const isEnvProduction = param.mode === 'production';
 
-  const port = parseInt(process.env.PORT, 10) || 9878;
-
   const result = {
     mode: param.mode,
 
@@ -178,10 +176,11 @@ module.exports = (
 
     // development
     devServer: {
-      host: '0.0.0.0',
+      server: process.env.HTTPS === 'true' ? 'https' : 'http',
+      host: process.env.HOST || '0.0.0.0',
       // contentBase: path.resolve(__dirname, './dist'), // dist 디렉토리를 웹 서버의 기본 호스트 위치로 설정
       // index: 'index.html', // 인덱스 파일 설정
-      port, // 포트 번호 설정
+      port: parseInt(process.env.PORT, 10) || 3000, // 포트 번호 설정
       hot: true, // 핫 모듈 교체(HMR) 활성화 설정
       compress: true, // gzip 압축 활성화
       historyApiFallback: true, // History 라우팅 대체 사용 설정
@@ -189,7 +188,11 @@ module.exports = (
 
       // static: './dist',
 
-      // proxy: {}
+      proxy: {
+        '/stw-cgi': {
+          target: 'http://localhost:3000',
+        }
+      },
     },
   };
 
