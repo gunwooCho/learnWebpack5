@@ -47,7 +47,6 @@
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-loader": "^7.3.4",
     "postcss-preset-env": "^9.3.0",
-    "source-map-loader": "^4.0.2",
     "style-loader": "^3.3.3",
     "terser-webpack-plugin": "^5.3.10",
     "ts-loader": "^9.5.1",

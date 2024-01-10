@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-import { decrement, increment } from '../store/modules/counterModule';
+import { decrement, increment } from 'store/modules/counterModule';
 
 // import code from './util/static/images/code.svg';
 
