@@ -30,5 +30,14 @@ module.exports = {
     "react/function-component-definition": "off",
     "arrow-parens": ["error", "as-needed"],
     "react/button-has-type": "off",
+    "@typescript-eslint/no-explicit-any": "warn"
   },
+  settings: {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".js", ".jsx", ".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
 };

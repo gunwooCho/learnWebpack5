@@ -1,4 +1,4 @@
-const worker = new Worker(new URL('./util/worker/workerExample.js', import.meta.url));
+const worker = new Worker(new URL('util/worker/workerExample.js', import.meta.url));
 
 worker.postMessage({
   question:

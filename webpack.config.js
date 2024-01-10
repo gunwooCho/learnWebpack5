@@ -1,3 +1,4 @@
+const path = require('path');
 const webpack = require('webpack');
 
 const dotenv = require('dotenv');
@@ -50,7 +51,8 @@ module.exports = (
     },
 
     resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx'], // import 시 extention 생략 가능한 대상
+      extensions: ['.js', '.jsx', '.ts', '.tsx'], // import or require 시 extention 생략 가능한 확장자 목록
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
     },
 
     module: {
@@ -185,7 +187,7 @@ module.exports = (
       historyApiFallback: true, // History 라우팅 대체 사용 설정
       open: true, // 개발 서버 자동 실행 설정
 
-      static: './dist',
+      // static: './dist',
 
       // proxy: {}
     },
