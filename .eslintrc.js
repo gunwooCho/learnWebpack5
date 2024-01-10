@@ -30,7 +30,8 @@ module.exports = {
     "react/function-component-definition": "off",
     "arrow-parens": ["error", "as-needed"],
     "react/button-has-type": "off",
-    "@typescript-eslint/no-explicit-any": "warn"
+    "@typescript-eslint/no-explicit-any": "warn",
+    "react/jsx-no-useless-fragment": "warn",
   },
   settings: {
     "import/parsers": {
