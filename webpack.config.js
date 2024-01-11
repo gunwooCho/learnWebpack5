@@ -18,7 +18,7 @@ const imageRegex = /\.(png|svg|jpe?g|gif)$/i;
 const webfontRegex = /\.(woff|woff2|eot|ttf|otf)$/i;
 
 module.exports = (
-  _, // { WEBPACK_SERVE },
+  env, // { WEBPACK_SERVE },
   args,
 ) => {
   const param = args;
@@ -26,18 +26,22 @@ module.exports = (
 
   const isEnvProduction = param.mode === 'production';
 
+  /** @type {webpack.Configuration} */
   const result = {
     mode: param.mode,
 
     bail: isEnvProduction,
 
-    entry: './src/index.jsx',
+    entry: {
+      index: path.resolve(__dirname, 'src', 'index.jsx'),
+    },
 
     devtool: isEnvProduction
       ? 'cheap-module-source-map'
       : 'source-map',
 
     output: {
+      path: path.resolve(__dirname, 'build'),
       filename: 'static/js/[name].[contenthash:8].js',
 
       chunkFilename: isEnvProduction
@@ -50,7 +54,7 @@ module.exports = (
 
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx'], // import or require 시 extention 생략 가능한 확장자 목록
-      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'], // default is ['node_modules'],
     },
 
     module: {
@@ -114,6 +118,8 @@ module.exports = (
     },
 
     plugins: [
+      // new webpack.ProgressPlugin(),
+
       new ESLintWebpackPlugin({
         // emitError: true,
         emitWarning: false,
@@ -123,7 +129,6 @@ module.exports = (
 
       new HtmlWebpackPlugin({
         template: './public/index.html',
-        favicon: false,
       }),
 
       new webpack.DefinePlugin({
@@ -173,28 +178,21 @@ module.exports = (
         name: false,
       },
     },
+  };
 
-    // development
-    devServer: {
+  if (param.mode === 'development') {
+    /** @type {import('webpack-dev-server').Configuration} */
+    const devServer = {
       server: process.env.HTTPS === 'true' ? 'https' : 'http',
       host: process.env.HOST || '0.0.0.0',
-      // contentBase: path.resolve(__dirname, './dist'), // dist 디렉토리를 웹 서버의 기본 호스트 위치로 설정
-      // index: 'index.html', // 인덱스 파일 설정
       port: parseInt(process.env.PORT, 10) || 3000, // 포트 번호 설정
       hot: true, // 핫 모듈 교체(HMR) 활성화 설정
       compress: true, // gzip 압축 활성화
       historyApiFallback: true, // History 라우팅 대체 사용 설정
       open: true, // 개발 서버 자동 실행 설정
-
-      // static: './dist',
-
-      proxy: {
-        '/stw-cgi': {
-          target: 'http://localhost:3000',
-        }
-      },
-    },
-  };
+    };
+    result.devServer = devServer;
+  }
 
   return result;
 };
