@@ -148,7 +148,7 @@ module.exports = (
         fileName: 'asset-manifest.json',
         publicPath: '/',
       }),
-    ].filter((plugins) => plugins),
+    ],
 
     optimization: {
       runtimeChunk: 'single',
@@ -170,6 +170,7 @@ module.exports = (
             },
             sourceMap: shouldUseSourceMap,
           },
+          parallel: true,
         }),
         new CssMinimizerPlugin(),
       ],

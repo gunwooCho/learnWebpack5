@@ -18,7 +18,13 @@
     "noEmit": false,
     "baseUrl": "src",
     "sourceMap": true,
-    "removeComments": true
+    "removeComments": true,
+    "declaration": true
+
+    // .d.ts
+    // "typeRoots": ["types"],
+    // "emitDeclarationOnly": true,
+    // "outDir": "types"
   },
   "include": [
     "src"
