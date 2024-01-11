@@ -34,4 +34,6 @@ yarn-debug.log*
 yarn-error.log*
 .yarn
 
+## typescript's
 types/
+*.d.ts

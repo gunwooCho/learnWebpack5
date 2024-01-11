@@ -19,9 +19,9 @@
     "baseUrl": "src",
     "sourceMap": true,
     "removeComments": true,
-    "declaration": true
 
     // .d.ts
+    "declaration": false
     // "typeRoots": ["types"],
     // "emitDeclarationOnly": true,
     // "outDir": "types"
