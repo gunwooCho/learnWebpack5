@@ -50,14 +50,14 @@ module.exports = (
     output: {
       path: outputBuildPaths.path,
 
-      filename: [outputPaths.js, '[name].[contenthash:8].js'].join('/'),
+      filename: [outputBuildPaths.js, '[name].[contenthash:8].js'].join('/'),
 
       chunkFilename: isEnvProduction
-        ? [outputPaths.js, '[name].[contenthash:8].chunk.js'].join('/')
-        : [outputPaths.js, '[name].chunk.js'].join('/'),
+        ? [outputBuildPaths.js, '[name].[contenthash:8].chunk.js'].join('/')
+        : [outputBuildPaths.js, '[name].chunk.js'].join('/'),
 
 
-      assetModuleFilename: [outputPaths.assets, '[hash][ext][query]'].join('/'),
+      assetModuleFilename: [outputBuildPaths.assets, '[hash][ext][query]'].join('/'),
       // https://webpack.kr/guides/output-management/#cleaning-up-the-dist-folder
       clean: true, // dist clean 여부
     },
@@ -132,7 +132,8 @@ module.exports = (
       }),
 
       new HtmlWebpackPlugin({
-        template: './public/index.html',
+        template: path.resolve(__dirname, 'public/index.html'),
+        inject: 'body',
       }),
 
       new webpack.DefinePlugin({
@@ -144,13 +145,12 @@ module.exports = (
       }),
 
       isEnvProduction && new MiniCssExtractPlugin({
-        filename: [outputPaths.css, '[name].[contenthash:8].css'].join('/'),
-        chunkFilename: [outputPaths.css, '[name].[contenthash:8].chunk.css'].join('/'),
+        filename: [outputBuildPaths.css, '[name].[contenthash:8].css'].join('/'),
+        chunkFilename: [outputBuildPaths.css, '[name].[contenthash:8].chunk.css'].join('/'),
       }),
 
       new WebpackManifestPlugin({
         fileName: 'asset-manifest.json',
-        publicPath: '/',
       }),
     ],
 
@@ -159,7 +159,9 @@ module.exports = (
       minimize: isEnvProduction,
       minimizer: [
         new TerserPlugin({
+          parallel: true,
           terserOptions: {
+            // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
             parse: {
               ecma: 8,
             },
@@ -174,7 +176,6 @@ module.exports = (
             },
             sourceMap: shouldUseSourceMap,
           },
-          parallel: true,
         }),
         new CssMinimizerPlugin(),
       ],
