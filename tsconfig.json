@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
+    "target": "ES5",
+    "module": "CommonJS",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -19,9 +19,12 @@
     "baseUrl": "src",
     "sourceMap": true,
     "removeComments": true,
-
-    // .d.ts
-    "declaration": false
+    // support .d.ts
+    "types": [
+      "node",
+      "webpack-env"
+    ],
+    "declaration": false,
     // "typeRoots": ["types"],
     // "emitDeclarationOnly": true,
     // "outDir": "types"

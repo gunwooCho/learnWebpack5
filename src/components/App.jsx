@@ -3,21 +3,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 import { decrement, increment } from 'store/modules/counterModule';
-import SubComponent from 'subpackage1/components/subComponent1';
-
-// import code from './util/static/images/code.svg';
+import { SubComponent1 } from 'subpackage1/components';
 
 const AppStyled = styled.i``;
 
 const App = () => {
-  const number = useSelector((s: any) => s.counter.number);
-  console.log(number);
+  const number = useSelector(s => s.counter.number);
   const dispatch = useDispatch();
 
   return (
     <div>
       <div>
-        <SubComponent />
+        <SubComponent1 />
         <AppStyled className="wni wni-add" />
         <div>{number}</div>
         <button onClick={() => dispatch(increment())}>+1</button>
