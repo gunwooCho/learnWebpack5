@@ -17,6 +17,13 @@ const cssRegex = /\.css$/i;
 const imageRegex = /\.(png|svg|jpe?g|gif)$/i;
 const webfontRegex = /\.(woff|woff2|eot|ttf|otf)$/i;
 
+const outputBuildPaths = {
+  path: path.resolve(__dirname, 'build'),
+  js: 'static/js',
+  css: 'static/css',
+  assets: 'static/resources',
+};
+
 module.exports = (
   env, // { WEBPACK_SERVE },
   args,
@@ -41,13 +48,16 @@ module.exports = (
       : 'source-map',
 
     output: {
-      path: path.resolve(__dirname, 'build'),
-      filename: 'static/js/[name].[contenthash:8].js',
+      path: outputBuildPaths.path,
+
+      filename: [outputPaths.js, '[name].[contenthash:8].js'].join('/'),
 
       chunkFilename: isEnvProduction
-        ? 'static/js/[name].[contenthash:8].chunk.js'
-        : 'static/js/[name].chunk.js',
+        ? [outputPaths.js, '[name].[contenthash:8].chunk.js'].join('/')
+        : [outputPaths.js, '[name].chunk.js'].join('/'),
 
+
+      assetModuleFilename: [outputPaths.assets, '[hash][ext][query]'].join('/'),
       // https://webpack.kr/guides/output-management/#cleaning-up-the-dist-folder
       clean: true, // dist clean 여부
     },
@@ -58,12 +68,6 @@ module.exports = (
     },
 
     module: {
-      parser: {
-        javascript: {
-          exportsPresence: 'error',
-        },
-      },
-
       rules: [
         {
           test: jsRegex,
@@ -140,8 +144,8 @@ module.exports = (
       }),
 
       isEnvProduction && new MiniCssExtractPlugin({
-        filename: 'static/css/[name].[contenthash:8].css',
-        chunkFilename: 'static/css/[name].[contenthash:8].chunk.css',
+        filename: [outputPaths.css, '[name].[contenthash:8].css'].join('/'),
+        chunkFilename: [outputPaths.css, '[name].[contenthash:8].chunk.css'].join('/'),
       }),
 
       new WebpackManifestPlugin({
