@@ -5,7 +5,9 @@ import styled from 'styled-components';
 import { decrement, increment } from 'store/modules/counterModule';
 import type { RootState } from 'store/modules';
 
-const { SubComponent1 } = require('subpackage1/components');
+import subPackageComponents from 'subpackage1/components';
+
+const { SubComponent1 } = subPackageComponents;
 
 const AppStyled = styled.i``;
 
@@ -19,7 +21,7 @@ const App = () => {
         <SubComponent1 />
         <AppStyled className="wni wni-add" />
         <div>{number}</div>
-        <button onClick={() => dispatch(increment())}>+1</button>
+        <button type="button" onClick={() => dispatch(increment())}>+1</button>
         <button onClick={() => dispatch(decrement())}>-1</button>
       </div>
     </div>
