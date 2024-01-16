@@ -3,12 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
 import { decrement, increment } from 'store/modules/counterModule';
-import { SubComponent1 } from 'subpackage1/components';
+import type { RootState } from 'store/modules';
+
+const { SubComponent1 } = require('subpackage1/components');
 
 const AppStyled = styled.i``;
 
 const App = () => {
-  const number = useSelector(s => s.counter.number);
+  const number = useSelector((s: RootState) => s.counter.number);
   const dispatch = useDispatch();
 
   return (
