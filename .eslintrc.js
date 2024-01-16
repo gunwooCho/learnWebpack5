@@ -29,8 +29,9 @@ module.exports = {
   rules: {
     "react/function-component-definition": "off",
     "arrow-parens": ["error", "as-needed"],
-    "react/button-has-type": "off",
-    "@typescript-eslint/no-var-requires": "off",
+    "react/button-has-type": "warn",
+    "@typescript-eslint/no-var-requires": "warn",
+    "no-console": ["warn", { allow: ["warn", "error"] }]
   },
   settings: {
     "import/parsers": {
