@@ -1,7 +1,11 @@
 // imports all file except index.js
 const context = require.context('.', true, /^(?!.\/index)/);
 
-const modules = context.keys().reduce((acc, key) => {
+type DynamicExports = {
+  [name: string]: React.Component,
+};
+
+const modules = context.keys().reduce((acc: DynamicExports, key) => {
   const matchName = key.match(/^.+\/([^/]+)\/(.*?).jsx$/);
 
   if (matchName) {
@@ -10,9 +14,10 @@ const modules = context.keys().reduce((acc, key) => {
     const target = context(key);
     if (target.default) {
       acc[fileName] = target.default;
+
       if (acc[fileName]) {
         // eslint-disable-next-line no-console
-        console.warn('[dynamicImport] overwirted module', fileName, key);
+        console.warn('[dynamic exports] overwirted module', fileName, key);
       }
     }
   }
@@ -20,4 +25,4 @@ const modules = context.keys().reduce((acc, key) => {
   return acc;
 }, {});
 
-module.exports = modules;
+export = modules;
