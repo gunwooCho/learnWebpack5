@@ -1,5 +1,5 @@
 import React from 'react';
 
-const SubComponent = () => <>subComponent hello world</>;
+const SubComponent1 = () => <>subComponent1 hello world</>;
 
-export default SubComponent;
+export default SubComponent1;

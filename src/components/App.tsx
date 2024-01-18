@@ -2,12 +2,12 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
+import SubComponent3 from 'components/SubComponent3';
+
 import { decrement, increment } from 'store/modules/counterModule';
 import type { RootState } from 'store/modules';
 
-import subPackageComponents from 'subpackage1/components';
-
-const { SubComponent1 } = subPackageComponents;
+import { SubComponent2 } from 'subpackage1/components';
 
 const AppStyled = styled.i``;
 
@@ -18,7 +18,8 @@ const App = () => {
   return (
     <div>
       <div>
-        <SubComponent1 />
+        <SubComponent2 />
+        <SubComponent3 />
         <AppStyled className="wni wni-add" />
         <div>{number}</div>
         <button type="button" onClick={() => dispatch(increment())}>+1</button>
