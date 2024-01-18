@@ -4,11 +4,12 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'airbnb',
-    'airbnb-typescript',
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
+    "airbnb",
+    "airbnb-typescript",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:storybook/recommended"
   ],
   overrides: [
   ],
