@@ -1,1 +1,3 @@
-declare module 'subpackage1/components';
+type DynamicExports = {
+  [name: string]: React.FC,
+};

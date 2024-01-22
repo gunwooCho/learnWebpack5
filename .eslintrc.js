@@ -28,11 +28,12 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-    "react/function-component-definition": "off",
-    "arrow-parens": ["error", "as-needed"],
-    "react/button-has-type": "warn",
     "@typescript-eslint/no-var-requires": "warn",
-    "no-console": ["warn", { allow: ["warn", "error"] }]
+    "arrow-parens": ["error", "as-needed"],
+    "react/function-component-definition": "off",
+    "react/button-has-type": "warn",
+    "no-console": ["warn", { allow: ["warn", "error"] }],
+    "import/no-extraneous-dependencies": "warn",
   },
   settings: {
     "import/parsers": {
