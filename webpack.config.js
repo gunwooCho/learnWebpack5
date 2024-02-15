@@ -3,7 +3,7 @@ const { merge } = require('webpack-merge');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const commonWebpackConfig = require('@packages/common-env/webpack.config');
+const commonWebpackConfig = require('@my-monorepo/webpack-config');
 
 module.exports = (
   env,

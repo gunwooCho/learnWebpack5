@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "CommonJS",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "pretty": true,
+    "jsx": "react-jsx",
+    "noEmit": false,
+    "baseUrl": "src",
+    "sourceMap": true,
+    "removeComments": true,
+    // support .d.ts
+    "types": [
+      "node",
+      "webpack-env"
+    ],
+    "declaration": false,
+    // "typeRoots": ["types"],
+    // "emitDeclarationOnly": true,
+    // "outDir": "types"
+  },
+  "include": [
+    "global.d.ts",
+    "src",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

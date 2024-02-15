@@ -19,8 +19,10 @@ module.exports = {
     project: './tsconfig.json',
   },
   ignorePatterns: [
-    '.eslintrc.js',
-    'webpack.config.js',
+    "env/eslint/index.js",
+    "env/webpack/index.js",
+    "webpack.*.js",
+    ".eslintrc.js",
   ],
   plugins: [
     'react',

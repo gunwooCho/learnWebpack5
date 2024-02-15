@@ -2419,6 +2419,68 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@my-monorepo/eslint-config@workspace:env/eslint":
+  version: 0.0.0-use.local
+  resolution: "@my-monorepo/eslint-config@workspace:env/eslint"
+  dependencies:
+    "@typescript-eslint/eslint-plugin": ^6.0.0
+    "@typescript-eslint/parser": ^6.0.0
+    eslint: ^8.56.0
+    eslint-config-airbnb: ^19.0.4
+    eslint-config-airbnb-typescript: ^17.1.0
+    eslint-import-resolver-typescript: ^3.6.1
+    eslint-plugin-import: ^2.29.1
+    eslint-plugin-jsx-a11y: ^6.8.0
+    eslint-plugin-react: ^7.33.2
+    eslint-plugin-react-hooks: ^4.6.0
+  languageName: unknown
+  linkType: soft
+
+"@my-monorepo/ts-config@workspace:env/typescript":
+  version: 0.0.0-use.local
+  resolution: "@my-monorepo/ts-config@workspace:env/typescript"
+  languageName: unknown
+  linkType: soft
+
+"@my-monorepo/webpack-config@workspace:env/webpack":
+  version: 0.0.0-use.local
+  resolution: "@my-monorepo/webpack-config@workspace:env/webpack"
+  dependencies:
+    "@svgr/webpack": ^8.1.0
+    "@typescript-eslint/eslint-plugin": ^6.18.1
+    "@typescript-eslint/parser": ^6.18.1
+    copy-webpack-plugin: ^11.0.0
+    css-loader: ^6.8.1
+    css-minimizer-webpack-plugin: ^5.0.1
+    dotenv: ^16.3.1
+    eslint: ^8.56.0
+    eslint-config-airbnb: ^19.0.4
+    eslint-config-airbnb-typescript: ^17.1.0
+    eslint-import-resolver-typescript: ^3.6.1
+    eslint-plugin-import: ^2.29.1
+    eslint-plugin-jsx-a11y: ^6.8.0
+    eslint-plugin-react: ^7.33.2
+    eslint-plugin-react-hooks: ^4.6.0
+    eslint-webpack-plugin: ^4.0.1
+    html-webpack-plugin: ^5.6.0
+    mini-css-extract-plugin: ^2.7.6
+    postcss: ^8.4.35
+    postcss-flexbugs-fixes: ^5.0.2
+    postcss-loader: ^7.3.4
+    postcss-preset-env: ^9.3.0
+    style-loader: ^3.3.3
+    terser-webpack-plugin: ^5.3.10
+    ts-loader: ^9.5.1
+    typescript: ^5.3.3
+    webpack: ^5.89.0
+    webpack-cli: ^5.1.4
+    webpack-dev-server: ^4.15.1
+    webpack-manifest-plugin: ^5.0.0
+    webpack-merge: ^5.10.0
+    webpackbar: ^6.0.0
+  languageName: unknown
+  linkType: soft
+
 "@ndelangen/get-tarball@npm:^3.0.7":
   version: 3.0.9
   resolution: "@ndelangen/get-tarball@npm:3.0.9"
@@ -2478,43 +2540,6 @@ __metadata:
   checksum: a50a6818de5fc557d0b0e6f50ec780a7a02ab8ad07e5ac8b16bf519e0ad60a144ac64f97d05c443c3367235d337182e1d012bbac0eb8dbae8dc7b40b193efd0e
   languageName: node
   linkType: hard
-
-"@packages/common-env@workspace:packages/common-env":
-  version: 0.0.0-use.local
-  resolution: "@packages/common-env@workspace:packages/common-env"
-  dependencies:
-    "@svgr/webpack": ^8.1.0
-    "@typescript-eslint/eslint-plugin": ^6.18.1
-    "@typescript-eslint/parser": ^6.18.1
-    copy-webpack-plugin: ^11.0.0
-    css-loader: ^6.8.1
-    css-minimizer-webpack-plugin: ^5.0.1
-    dotenv: ^16.3.1
-    eslint: ^8.56.0
-    eslint-config-airbnb: ^19.0.4
-    eslint-config-airbnb-typescript: ^17.1.0
-    eslint-import-resolver-typescript: ^3.6.1
-    eslint-plugin-import: ^2.29.1
-    eslint-plugin-jsx-a11y: ^6.8.0
-    eslint-plugin-react: ^7.33.2
-    eslint-webpack-plugin: ^4.0.1
-    html-webpack-plugin: ^5.6.0
-    mini-css-extract-plugin: ^2.7.6
-    postcss-flexbugs-fixes: ^5.0.2
-    postcss-loader: ^7.3.4
-    postcss-preset-env: ^9.3.0
-    style-loader: ^3.3.3
-    terser-webpack-plugin: ^5.3.10
-    ts-loader: ^9.5.1
-    typescript: ^5.3.3
-    webpack: ^5.89.0
-    webpack-cli: ^5.1.4
-    webpack-dev-server: ^4.15.1
-    webpack-manifest-plugin: ^5.0.0
-    webpack-merge: ^5.10.0
-    webpackbar: ^6.0.0
-  languageName: unknown
-  linkType: soft
 
 "@pkgjs/parseargs@npm:^0.11.0":
   version: 0.11.0
@@ -4803,7 +4828,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prop-types@npm:*, @types/prop-types@npm:^15":
+"@types/prop-types@npm:*":
   version: 15.7.11
   resolution: "@types/prop-types@npm:15.7.11"
   checksum: 7519ff11d06fbf6b275029fe03fff9ec377b4cb6e864cac34d87d7146c7f5a7560fd164bdc1d2dbe00b60c43713631251af1fd3d34d46c69cd354602bc0c7c54
@@ -4824,16 +4849,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^18.2.18":
-  version: 18.2.19
-  resolution: "@types/react-dom@npm:18.2.19"
-  dependencies:
-    "@types/react": "*"
-  checksum: 087a19d8e4c1c0900ec4ac5ddb749a811a38274b25683d233c11755d2895cc6e475e8bf9bea3dee36519769298e078d4c2feab9ab4bd13b26bc2a6170716437e
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:*, @types/react@npm:>=16":
+"@types/react@npm:>=16":
   version: 18.2.55
   resolution: "@types/react@npm:18.2.55"
   dependencies:
@@ -4980,7 +4996,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^6.18.1":
+"@typescript-eslint/eslint-plugin@npm:^6.0.0, @typescript-eslint/eslint-plugin@npm:^6.18.1":
   version: 6.21.0
   resolution: "@typescript-eslint/eslint-plugin@npm:6.21.0"
   dependencies:
@@ -5005,7 +5021,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:^6.18.1":
+"@typescript-eslint/parser@npm:^6.0.0, @typescript-eslint/parser@npm:^6.18.1":
   version: 6.21.0
   resolution: "@typescript-eslint/parser@npm:6.21.0"
   dependencies:
@@ -8012,6 +8028,15 @@ __metadata:
   peerDependencies:
     eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
   checksum: 3dec00e2a3089c4c61ac062e4196a70985fb7eda1fd67fe035363d92578debde92fdb8ed2e472321fc0d71e75f4a1e8888c6a3218c14dd93c8e8d19eb6f51554
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-react-hooks@npm:^4.6.0":
+  version: 4.6.0
+  resolution: "eslint-plugin-react-hooks@npm:4.6.0"
+  peerDependencies:
+    eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0
+  checksum: 23001801f14c1d16bf0a837ca7970d9dd94e7b560384b41db378b49b6e32dc43d6e2790de1bd737a652a86f81a08d6a91f402525061b47719328f586a57e86c3
   languageName: node
   linkType: hard
 
@@ -12374,7 +12399,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.24, postcss@npm:^8.4.33":
+"postcss@npm:^8.4.24, postcss@npm:^8.4.33, postcss@npm:^8.4.35":
   version: 8.4.35
   resolution: "postcss@npm:8.4.35"
   dependencies:
@@ -15093,8 +15118,6 @@ __metadata:
   resolution: "webpack5@workspace:."
   dependencies:
     "@reduxjs/toolkit": ^2.2.1
-    "@types/prop-types": ^15
-    "@types/react-dom": ^18.2.18
     "@types/webpack-env": ^1.18.4
     moment: ^2.30.1
     prop-types: ^15.8.1

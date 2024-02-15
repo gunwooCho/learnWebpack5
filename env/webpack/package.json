@@ -1,5 +1,5 @@
 {
-  "name": "@packages/common-env",
+  "name": "@my-monorepo/webpack-config",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -35,5 +35,9 @@
     "webpack-manifest-plugin": "^5.0.0",
     "webpack-merge": "^5.10.0",
     "webpackbar": "^6.0.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "postcss": "^8.4.35"
   }
 }

@@ -1,3 +1,3 @@
 module.exports = {
-  extends: "./packages/common-env/.eslintrc.js"
+  extends: ["@my-monorepo/eslint-config"]
 };
