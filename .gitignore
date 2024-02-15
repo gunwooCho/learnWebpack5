@@ -32,7 +32,8 @@ font-icons/node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.yarn
 
 ## typescript's
 types/
+.yarn/cache
+.yarn/*.gz

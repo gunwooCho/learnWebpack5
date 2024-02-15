@@ -23,7 +23,7 @@ const App = () => {
         <AppStyled className="wni wni-add" />
         <div>{number}</div>
         <button type="button" onClick={() => dispatch(increment())}>+1</button>
-        <button onClick={() => dispatch(decrement())}>-1</button>
+        <button type="button" onClick={() => dispatch(decrement())}>-1</button>
       </div>
     </div>
   );
