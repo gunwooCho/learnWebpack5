@@ -27,7 +27,7 @@
     "declaration": false,
     // "typeRoots": ["types"],
     // "emitDeclarationOnly": true,
-    // "outDir": "types"
+    "outDir": "./build"
   },
   "include": [
     "global.d.ts",

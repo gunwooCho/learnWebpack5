@@ -35,6 +35,7 @@ module.exports = {
     "react/button-has-type": "warn",
     "no-console": ["warn", { allow: ["warn", "error"] }],
     "import/no-extraneous-dependencies": "warn",
+    'linebreak-style': ['error', require('os').EOL === '\r\n' ? 'windows' : 'unix'],
   },
   settings: {
     "import/parsers": {
