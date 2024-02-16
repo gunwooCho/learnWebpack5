@@ -1,17 +1,16 @@
 const path = require('path');
-const { merge } = require('webpack-merge');
-
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const commonWebpackConfig = require('@my-monorepo/webpack-config');
+// const commonWebpackConfig = require('@my-monorepo/webpack-config');
 
 module.exports = (
   env,
   args,
 ) => {
-  const defaultConfig = commonWebpackConfig(env, args);
-
-  const result = merge(defaultConfig, {
+  /** @type {webpack.Configuration} */
+  const result = {
+    extends: require.resolve('@my-monorepo/webpack-config'),
     entry: {
       index: './src/index.jsx',
     },
@@ -22,7 +21,7 @@ module.exports = (
         inject: 'body',
       }),
     ]
-  });
+  };
 
   return result;
 }
