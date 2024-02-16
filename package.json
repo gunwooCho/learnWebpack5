@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@types/webpack-env": "^1.18.4",
+    "storybook": "^7.6.16",
     "webpack": "^5.90.1"
   },
   "packageManager": "yarn@3.8.0"

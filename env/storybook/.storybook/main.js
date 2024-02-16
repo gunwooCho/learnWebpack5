@@ -1,4 +1,4 @@
-import { join, dirname } from "path";
+import { join, dirname, resolve } from "path";
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -8,11 +8,15 @@ function getAbsolutePath(value) {
   return dirname(require.resolve(join(value, "package.json")));
 }
 
+const storyPath = resolve(process.cwd(), '**/*.stories.@(js|jsx|mjs|ts|tsx)');
+console.log(storyPath);
+
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
 const config = {
   stories: [
-    "../**/*.mdx",
-    "../**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    // "../stories/**/*.mdx",
+    // "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
+    storyPath
   ],
   addons: [
     getAbsolutePath("@storybook/addon-links"),
